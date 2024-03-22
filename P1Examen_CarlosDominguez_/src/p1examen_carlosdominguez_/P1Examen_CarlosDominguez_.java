@@ -28,16 +28,16 @@ public class P1Examen_CarlosDominguez_ {
                     Buscar_empleado();
                     break;
                 case 3:
-                    
+                    Mostrar_Lista();
                     break;
                 case 4:
-                    
+                    ModificarInfo();
                     break;
                 case 5:
-                    
+                    RetirarMara();
                     break;
                 case 6:
-                    
+                    List_por_depa();
                     break;
                 case 7:
                     System.out.println("Saliendo.....");
@@ -77,6 +77,77 @@ public class P1Examen_CarlosDominguez_ {
         }
     }
     public static void Buscar_empleado (){
+        brazil.nextLine();
+        System.out.println("Ingrese el nombre del empleado que desde encontrar");
+        String busqN = brazil.nextLine();
+        System.out.println("Ingrese el numero de Id del empleado que desea buscar");
+        int busqID = brazil.nextInt();
+        boolean mensaje = false;
+        for (int i = 0; i < List_empleados.size(); i++) {
+            Empleado temp = List_empleados.get(i);
+            String tempN = temp.getNombre();
+            int tempID = temp.getNdeIdentificacion();
+            if ( tempN.contentEquals(busqN) && tempID == busqID) {
+                mensaje = true;
+                break;
+            }
+        }
+        if (mensaje == true) {
+            System.out.println("El empleado buscado si se encuentra en la Lista");
+        }else{
+            System.out.println("El empleado buscado no esta en la lista");
+        }
+    }
+    public static void Mostrar_Lista (){
+        for (int i = 0; i < List_empleados.size(); i++) {
+            Empleado pos = List_empleados.get(i);
+            /*String tempN = pos.getNombre();
+            String tempP = pos.getPuesto();
+            int tempS = pos.getSalario();
+            String tempD = pos.getDepartamento();
+            int tempID = pos.getNdeIdentificacion();
+            */
+            // todo lo anterior era por si queria hacerlo pieza por pieza y me acorde del ToString jajajajaj
+            pos.toString();
+        }
+    }
+    public static void ModificarInfo (){
+        System.out.println("QUE DESDEA CAMBIAR ? ");
+        System.out.println("Que posicion de empleado desde cambiar la info ");
+        int pos = brazil.nextInt();
+        if (pos > 0 && pos < List_empleados.size()) {
+            System.out.println("1. Nombre del empleado ");
+            System.out.println("2. Puesto que ocupa ");
+            System.out.println("3. Salario ");
+            System.out.println("4. Departamento ");
+            int op = brazil.nextInt();
+            switch (op) {
+                case 1:
+                    brazil.nextLine();
+                    System.out.println("Ingrese el nombre que va a cambiar por el actual ");
+                    break;
+                case 2:
+                    brazil.nextLine();
+                    
+                    break;
+                case 3:
+                    
+                    break;
+                case 4:
+                    brazil.nextLine();
+                    
+                    break;
+                default:
+                    System.out.println("Opcion no valida");
+            }
+        }else{
+            System.out.println("Posicion no valida");
+        }
+    }
+    public static void RetirarMara (){
+        
+    }
+    public static void List_por_depa(){
         
     }
 }

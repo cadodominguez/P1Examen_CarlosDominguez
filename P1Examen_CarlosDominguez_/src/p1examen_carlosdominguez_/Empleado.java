@@ -55,5 +55,10 @@ public class Empleado {
     public void setNdeIdentificacion(int NdeIdentificacion) {
         this.NdeIdentificacion = NdeIdentificacion;
     }
+
+    @Override
+    public String toString() {
+        return "Empleado{" + "Nombre=" + Nombre + ", Puesto=" + Puesto + ", Salario=" + Salario + ", Departamento=" + Departamento + ", NdeIdentificacion=" + NdeIdentificacion + '}';
+    }
     
 }
