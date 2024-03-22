@@ -121,21 +121,38 @@ public class P1Examen_CarlosDominguez_ {
             System.out.println("3. Salario ");
             System.out.println("4. Departamento ");
             int op = brazil.nextInt();
+            Empleado temp = List_empleados.get(pos);
             switch (op) {
                 case 1:
                     brazil.nextLine();
                     System.out.println("Ingrese el nombre que va a cambiar por el actual ");
+                    String cambN = brazil.nextLine();
+                    temp.setNombre(cambN);
+                    List_empleados.set(pos, temp);
                     break;
                 case 2:
                     brazil.nextLine();
-                    
+                    System.out.println("Ingrese el puesto que va a cambiar por el actual ");
+                    String cambP = brazil.nextLine();
+                    temp.setDepartamento(cambP);
+                    List_empleados.set(pos, temp);
                     break;
                 case 3:
-                    
+                    System.out.println("Ingrese el Salario que va a cambiar por el actual ");
+                    int cambS = brazil.nextInt();
+                    if (cambS > 0) {
+                        temp.setSalario(cambS);
+                        List_empleados.set(pos, temp);
+                    }else{
+                        System.out.println("Que las personas no se pagan solas ");
+                    }
                     break;
                 case 4:
                     brazil.nextLine();
-                    
+                    System.out.println("Ingrese el departamento que va a cambiar por el actual");
+                    String cambD = brazil.nextLine();
+                    temp.setDepartamento(cambD);
+                    List_empleados.set(pos, temp);
                     break;
                 default:
                     System.out.println("Opcion no valida");
@@ -145,9 +162,25 @@ public class P1Examen_CarlosDominguez_ {
         }
     }
     public static void RetirarMara (){
-        
+        System.out.println("En que posicion esta el empleado que desea eliminar ");
+        int pos = brazil.nextInt();
+        if (pos > 0 && pos < List_empleados.size()) {
+            List_empleados.remove(pos);
+            System.out.println("Se eliminado el Empleado con exito ");
+        }else{
+            System.out.println("Posicion no registrada");
+        }
     }
     public static void List_por_depa(){
-        
+        boolean mensaje_final;
+        brazil.nextLine();
+        System.out.println("Ingrese el departamente el cual busca ");
+        String busqD = brazil.nextLine();
+        for (int i = 0; i < List_empleados.size(); i++) {
+            Empleado temp = List_empleados.get(i);
+            if (busqD.equals(temp.getDepartamento())) {
+                System.out.println(temp.toString());
+            }
+        }
     }
 }
