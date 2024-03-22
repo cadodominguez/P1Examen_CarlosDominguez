@@ -172,7 +172,7 @@ public class P1Examen_CarlosDominguez_ {
         }
     }
     public static void List_por_depa(){
-        boolean mensaje_final;
+        boolean mensaje_final = false;
         brazil.nextLine();
         System.out.println("Ingrese el departamente el cual busca ");
         String busqD = brazil.nextLine();
@@ -180,7 +180,11 @@ public class P1Examen_CarlosDominguez_ {
             Empleado temp = List_empleados.get(i);
             if (busqD.equals(temp.getDepartamento())) {
                 System.out.println(temp.toString());
+                mensaje_final = true;
             }
+        }
+        if (mensaje_final == false) {
+            System.out.println("Departamento Vacio");
         }
     }
 }
